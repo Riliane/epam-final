@@ -1,0 +1,90 @@
+body{
+    background-color: #e7eeff;
+    font-family: Verdana;
+}
+h1{
+    text-align: center;
+    color: darkblue;
+    margin: auto;
+    width: 100%;
+}
+
+.error-message{
+    background-color: coral;
+    border: 2px solid red;
+    padding: 10px;
+}
+
+.topbar{
+    background-color: darkblue;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.right{
+    /*margin-right: 0;
+    margin-left: auto;*/
+}
+a.topbar-section:link, a.topbar-section:visited{
+    padding: 15px 20px;
+    text-align: center;
+    width: 150px;
+    display: inline-block;
+    color: white;
+    float: right;
+    text-decoration: none;
+}
+a.topbar-section:hover{
+    background-color: slateblue;
+}
+/*.topbar-section a{
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+
+}*/
+
+table.restable{
+    border-collapse: collapse;
+    width:100%;
+}
+
+.restable th{
+    border-bottom: 1px solid slateblue;
+    padding:10px 5px;
+}
+
+.restable td{
+    border-bottom: 1px solid slateblue;
+    padding: 5px;
+}
+
+.restable tr:hover {
+    background-color: lightblue;
+}
+
+.form-container{
+    margin: 10px;
+    border: 3px solid slateblue;
+    padding: 10px;
+}
+
+.form-element{
+    display: inline-block;
+}
+
+.form-container form{
+    margin: 0;
+}
+
+input[type=submit] {
+    background:darkblue;
+    border:0 none;
+    border-radius: 3px;
+    color: white;
+    padding: 2px 6px;
+}

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="j2ee">
+    <CLASSES>
+      <root url="jar://F:/JWD_Task01_OOP-master/epamtask-servlet/lib/j2ee.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

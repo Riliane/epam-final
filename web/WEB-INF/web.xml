@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+    <servlet-name>Search</servlet-name>
+    <servlet-class>Search</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Document</servlet-name>
+        <servlet-class>DocumentInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Document</servlet-name>
+        <url-pattern>/document</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addreader</servlet-name>
+        <servlet-class>AddReader</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addreader</servlet-name>
+        <url-pattern>/admin/addreader</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addlibrarian</servlet-name>
+        <servlet-class>AddLibrarian</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addlibrarian</servlet-name>
+        <url-pattern>/admin/addlibrarian</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>adddocument</servlet-name>
+        <servlet-class>AddDocument</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adddocument</servlet-name>
+        <url-pattern>/manage/adddocument</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>order</servlet-name>
+        <servlet-class>Order</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>order</servlet-name>
+        <url-pattern>/order</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>return</servlet-name>
+        <servlet-class>Return</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>return</servlet-name>
+        <url-pattern>/manage/return</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>delete</servlet-name>
+        <servlet-class>DeleteDocument</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delete</servlet-name>
+        <url-pattern>/manage/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>repair</servlet-name>
+        <servlet-class>RepairDocument</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>repair</servlet-name>
+        <url-pattern>/manage/repair</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>changePassword</servlet-name>
+        <servlet-class>ChangePassword</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>changePassword</servlet-name>
+        <url-pattern>/changePassword</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>deleteUser</servlet-name>
+        <servlet-class>DeleteUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteUser</servlet-name>
+        <url-pattern>/admin/deleteUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>userinfo</servlet-name>
+        <servlet-class>UserInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userinfo</servlet-name>
+        <url-pattern>/userinfo</url-pattern>
+    </servlet-mapping>
+
+
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/login_fail.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>All the administrating pages</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+
+        <user-data-constraint>
+            <!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>All the librarian managing pages</web-resource-name>
+            <url-pattern>/manage/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>librarian</role-name>
+        </auth-constraint>
+
+        <user-data-constraint>
+            <!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>A page for authorization. As the login page can't be directly accessed, this restricted page redirects to the login page,
+            and, when logged in, redirects to the index</web-resource-name>
+            <url-pattern>/auth.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+            <role-name>librarian</role-name>
+            <role-name>reader</role-name>
+        </auth-constraint>
+
+        <user-data-constraint>
+            <!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Book order page</web-resource-name>
+            <url-pattern>/order</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>reader</role-name>
+        </auth-constraint>
+
+        <user-data-constraint>
+            <!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-role>
+        <description>Administrator can create and delete users</description>
+        <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <description>Reader can order documents</description>
+        <role-name>reader</role-name>
+    </security-role>
+    <security-role>
+        <description>Librarian can add and delete documents, register a document's return, register a repair</description>
+        <role-name>librarian</role-name>
+    </security-role>
+</web-app>
