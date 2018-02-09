@@ -8,11 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Регистрация успешна</title>
 </head>
-<body>
+<body><div class="message">
 Пользователь успешно зарегистрирован!<br>
-Имя пользователя: ${username}
-Пароль: ${password}
+Имя пользователя: ${username}<br>
+    Пароль: ${password}</div>
 </body>
 </html>

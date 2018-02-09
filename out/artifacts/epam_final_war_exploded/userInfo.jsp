@@ -10,14 +10,15 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
 <c:choose><c:when test="${user == null}">
-    Пользователь не найден
+    <div class="error-message">Пользователь не найден</div>
 </c:when>
     <c:otherwise>
-        Информация о пользователе
-        <table><tr>
+        <h2>Информация о пользователе</h2>
+        <table class="restable"><tr>
         <td>Имя пользователя</td><td>${user.getUsername()}</td>
     </tr> <tr>
         <td>Роль</td><td>
@@ -39,9 +40,9 @@
         </tr></c:if>
         </table>
         <c:if test="${pageContext.request.isUserInRole('admin') || pageContext.request.remoteUser == user.getUsername}">
-        <a href="changePassword.jsp?id=${user.getUsername()}">Сменить пароль</a>
+        <a class="button" href="changePassword.jsp?id=${user.getUsername()}">Сменить пароль</a>
         </c:if>
-        <c:if test="${pageContext.request.isUserInRole('admin')}"><a href="admin/deleteUser.jsp?id=${user.getUsername()}">Удалить</a> </c:if>
+        <c:if test="${pageContext.request.isUserInRole('admin')}"><a class="button" href="admin/deleteUser.jsp?id=${user.getUsername()}">Удалить</a> </c:if>
 
     </c:otherwise></c:choose>
 

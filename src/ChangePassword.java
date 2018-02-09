@@ -1,4 +1,5 @@
 import dao.DAOImpl;
+import view.ShortMsgDisplayer;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,24 +28,17 @@ public class ChangePassword extends HttpServlet {
                 try {
                     DAOImpl dao = DAOImpl.getInstance();
                     dao.changePassword(request.getParameter("id"), request.getParameter("password"));
-                    response.setCharacterEncoding("UTF-8");
-                    PrintWriter out = response.getWriter();
-                    out.println("<html><head>");
-                    out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-                    out.println("<title>Title</title>");
-                    out.println("</head><body>");
-                    out.println("Пароль успешно изменен!");
-                    out.println("</body></html>");
-                }catch (ClassNotFoundException e){
+                    ShortMsgDisplayer.getInstance().displayMessage("Пароль успешно изменен", response);
+                } catch (ClassNotFoundException e) {
                     response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading SQL connection driver");
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     StringWriter sw = new StringWriter();
                     PrintWriter pw = new PrintWriter(sw);
                     e.printStackTrace(pw);
                     String sStackTrace = sw.toString();
                     response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "SQL error\n" + sStackTrace);
-                }catch (NoSuchAlgorithmException e){
-                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error calculating MD5");
+                } catch (NoSuchAlgorithmException e) {
+                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error encrypting password");
                 }
             }
         } else {response.sendError(HttpServletResponse.SC_FORBIDDEN);}

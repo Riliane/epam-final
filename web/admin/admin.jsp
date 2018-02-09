@@ -8,13 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Администрирование</title>
 </head>
 <body>
-<a href="addReader.jsp">Добавить читателя</a>
-<a href="addLibrarian.jsp">Добавить библиотекаря</a><br>
-<form action="/userinfo" method="get">
-    Поиск пользователя по имени пользователя <input type="text" name="id">
-    <input type="submit"/></form>
+<a class="button" href="addReader.jsp">Добавить читателя</a>
+<a class="button" href="addLibrarian.jsp">Добавить библиотекаря</a><br>
+<div class="form-container"><form action="/userinfo" method="get">
+    <div class="form-element">Поиск пользователя по имени пользователя <input type="text" name="id"></div>
+    <div class="form-element"><input type="submit"/></div></form></div>
 </body>
 </html>

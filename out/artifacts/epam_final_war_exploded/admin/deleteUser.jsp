@@ -8,10 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Удаление пользователя</title>
 </head>
 <body>
-Вы уверены, что хотите удалить пользователя ${param.id}?<br>
-<a href="deleteUser?id=${param.id}">Подтвердить</a>
+<div class="message"> Вы уверены, что хотите удалить пользователя ${param.id}?<br>
+<a href="deleteUser?id=${param.id}" class="button">Подтвердить</a></div>
 </body>
 </html>

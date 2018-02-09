@@ -9,16 +9,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Смена пароля</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body><c:choose>
     <c:when test="${pageContext.request.isUserInRole('admin') || pageContext.request.remoteUser == id}">
-        <form action="changePassword" method="post">
+        <div class="login-form-container"><form action="changePassword" method="post">
         <input type="text" value="${param.id}" name="id" hidden>
-            Новый пароль <input type="password" name="password" required>
-            Повторите пароль <input type="password" name="repeat" required>
-            <input type="submit"/>
-        </form>
+            <div class="form-element">Новый пароль <input type="password" name="password" required></div>
+            <div class="form-element">Повторите пароль <input type="password" name="repeat" required></div>
+            <div class="form-element"><input type="submit"/></div>
+        </form></div>
     </c:when>
 
     <c:otherwise><%response.sendError(HttpServletResponse.SC_FORBIDDEN);%>;</c:otherwise>

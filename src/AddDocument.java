@@ -7,12 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.sql.SQLException;
 
 /**
  * Created by Nana on 26.01.2018.
  */
-public class AddDocument extends HttpServlet{
+public class AddDocument extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,24 +22,15 @@ public class AddDocument extends HttpServlet{
             DAOImpl dao = DAOImpl.getInstance();
             int id = dao.insertDocument(request.getParameter("name"), request.getParameter("author"), request.getParameter("publisher"), request.getParameter("year_of_publishing"),
                     request.getParameter("series"), request.getParameter("periodic_number"), request.getParameter("topic"), request.getParameter("ISBN"));
-            response.sendRedirect("/document?id="+ id);
+            response.sendRedirect("/document?id=" + id);
         } catch (ClassNotFoundException e) {
-            PrintWriter out = response.getWriter();
-            out.println("<html><head>");
-            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-            out.println("<title>Title</title>");
-            out.println("</head><body>");
-            out.println("Error loading driver");
-            out.println("</body></html>");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading SQL connection driver");
         } catch (SQLException e) {
-            PrintWriter out = response.getWriter();
-            out.println("<html><head>");
-            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-            out.println("<title>Title</title>");
-            out.println("</head><body>");
-            out.println("SQL error");
-            e.printStackTrace(out);
-            out.println("</body></html>");
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            String sStackTrace = sw.toString();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "SQL error\n" + sStackTrace);
         }
     }
 }

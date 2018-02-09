@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -17,20 +18,18 @@ import java.text.ParseException;
 public class AddLibrarian extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        if (!request.getParameter("password").equals(request.getParameter("repeat"))){
+        if (!request.getParameter("password").equals(request.getParameter("repeat"))) {
             request.setAttribute("error", 1);
             RequestDispatcher view = request.getRequestDispatcher("addLibrarian.jsp");
             view.forward(request, response);
-        }
-        else if (!request.getParameter("username").matches("\\S*[a-zA-Z]\\S*")){
+        } else if (!request.getParameter("username").matches("\\S*[a-zA-Z]\\S*")) {
             request.setAttribute("error", 4);
             RequestDispatcher view = request.getRequestDispatcher("addLibrarian.jsp");
             view.forward(request, response);
-        }
-        else {
+        } else {
             try {
                 DAOImpl dao = DAOImpl.getInstance();
-                if (!dao.checkUsername(request.getParameter("username"))){
+                if (!dao.checkUsername(request.getParameter("username"))) {
                     request.setAttribute("error", 3);
                     RequestDispatcher view = request.getRequestDispatcher("addLibrarian.jsp");
                     view.forward(request, response);
@@ -40,32 +39,17 @@ public class AddLibrarian extends HttpServlet {
                 request.setAttribute("password", request.getParameter("password"));
                 RequestDispatcher view = request.getRequestDispatcher("registerSuccess.jsp");
                 view.forward(request, response);
-            }catch (ClassNotFoundException e){
-                PrintWriter out = response.getWriter();
-                out.println("<html><head>");
-                out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-                out.println("<title>Title</title>");
-                out.println("</head><body>");
-                out.println("Error loading driver");
-                out.println("</body></html>");
-            }catch (SQLException e){
-                PrintWriter out = response.getWriter();
-                out.println("<html><head>");
-                out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-                out.println("<title>Title</title>");
-                out.println("</head><body>");
-                out.println("SQL error");
-                e.printStackTrace(out);
-                out.println("</body></html>");
-            }catch (NoSuchAlgorithmException e){
-                PrintWriter out = response.getWriter();
-                out.println("<html><head>");
-                out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-                out.println("<title>Title</title>");
-                out.println("</head><body>");
-                out.println("Error encrypting password");
-                out.println("</body></html>");
-            }
+            } catch (ClassNotFoundException e) {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading SQL connection driver");
+            } catch (SQLException e) {
+                StringWriter sw = new StringWriter();
+                PrintWriter pw = new PrintWriter(sw);
+                e.printStackTrace(pw);
+                String sStackTrace = sw.toString();
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "SQL error\n" + sStackTrace);
+            } catch (NoSuchAlgorithmException e) {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error encrypting password");
             }
         }
+    }
 }

@@ -10,9 +10,17 @@ h1{
 }
 
 .error-message{
-    background-color: coral;
+    background-color: peachpuff;
     border: 2px solid red;
     padding: 10px;
+    margin: 30px;
+}
+
+.message{
+    background-color: powderblue;
+    border: 2px solid slateblue;
+    padding: 10px;
+    margin: 30px;
 }
 
 .topbar{
@@ -73,15 +81,29 @@ table.restable{
     padding: 10px;
 }
 
+.login-form-container{
+    margin: auto;
+    border: 3px solid slateblue;
+    padding: 25px;
+}
+
 .form-element{
     display: inline-block;
 }
 
-.form-container form{
+form{
     margin: 0;
 }
 
 input[type=submit] {
+    background:darkblue;
+    border:0 none;
+    border-radius: 3px;
+    color: white;
+    padding: 2px 6px;
+}
+
+a.button {
     background:darkblue;
     border:0 none;
     border-radius: 3px;

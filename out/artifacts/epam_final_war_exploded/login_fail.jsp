@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Ошибка</title>
 </head>
 <body>
-Неверное имя пользователя или пароль
+<div class="error-message">Неверное имя пользователя или пароль</div>
 </body>
 </html>

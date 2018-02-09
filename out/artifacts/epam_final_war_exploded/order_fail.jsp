@@ -9,13 +9,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Ошибка</title>
 </head>
 <body>
+<div class="error-message">
 Вы не можете заказать документ по следующей причине:<br>
 <c:choose><c:when test="${error == 1}">Вы уже имеете слишком много документов на руках. Верните другие документы.</c:when>
     <c:when test="${error == 2}">У вас на руках есть документы, не возвращенные в срок. Верните документы.</c:when>
     <c:otherwise>Неизвестная причина</c:otherwise>
-</c:choose>
+</c:choose></div>
 </body>
 </html>

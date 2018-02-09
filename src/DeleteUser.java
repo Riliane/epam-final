@@ -1,4 +1,5 @@
 import dao.DAOImpl;
+import view.ShortMsgDisplayer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,14 +24,7 @@ public class DeleteUser extends HttpServlet {
             try {
                 DAOImpl dao = DAOImpl.getInstance();
                 dao.deleteUser(request.getParameter("id"));
-                response.setCharacterEncoding("UTF-8");
-                PrintWriter out = response.getWriter();
-                out.println("<html><head>");
-                out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-                out.println("<title>Title</title>");
-                out.println("</head><body>");
-                out.println("Пользователь удален");
-                out.println("</body></html>");
+                ShortMsgDisplayer.getInstance().displayMessage("Пользователь удален", response);
             }catch (ClassNotFoundException e){
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading SQL connection driver");
             }catch (SQLException e){

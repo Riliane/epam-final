@@ -8,13 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Вход в систему</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
+<div class="login-form-container">
 <form method="POST" action="j_security_check">
-    Имя пользователя:<input type="text" name="j_username">
-    Пароль:<input type="password" name="j_password">
-    <input type="submit" value="Войти" >
+    <div class="form-element">Имя пользователя:<input type="text" name="j_username"></div><br>
+    <div class="form-element">Пароль:<input type="password" name="j_password"></div>
+    <div class="form-element"><input type="submit" value="Войти" ></div>
 </form>
+</div>
 </body>
 </html>

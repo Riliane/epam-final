@@ -8,6 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.*;
+import org.apache.log4j.Logger;
 
 public class DAOImpl {
     public static final String PASSWORD = "******";
@@ -16,6 +17,8 @@ public class DAOImpl {
         return instance;
     }
     private DAOImpl(){}
+
+    static final Logger LOGGER = Logger.getLogger(DAOImpl.class);
 
     final String DB_URL = "jdbc:mysql://127.0.0.1:3306/library_db?useUnicode=true&characterEncoding=UTF-8";
     Connection con = null;
@@ -30,6 +33,7 @@ public class DAOImpl {
         if (!criteria.equals("")) {
             query = query.concat(" WHERE " + criteria);
         }
+        LOGGER.info("Query: " + query);
         rs = st.executeQuery(query);
         while (rs.next()) {
             Document document = new Document();
@@ -51,6 +55,7 @@ public class DAOImpl {
         if (con == null) {con = DriverManager.getConnection(DB_URL, "root", PASSWORD);}
         st = con.createStatement();
         String query = "SELECT * FROM documents WHERE document_id = " + id;
+        LOGGER.info("Query: " + query);
         rs = st.executeQuery(query);
         while (rs.next()){
             doc = new Document();
@@ -78,6 +83,7 @@ public class DAOImpl {
         if (con == null) {con = DriverManager.getConnection(DB_URL, "root", PASSWORD);}
         st = con.createStatement();
         String query = "SELECT username, role FROM accounts WHERE username = '" + id + "'";
+        LOGGER.info("Query: " + query);
         rs = st.executeQuery(query);
         if (!rs.next()) {return null;}
         if (rs.getString(2).equals("reader")){
@@ -100,6 +106,7 @@ public class DAOImpl {
         if (con == null) {con = DriverManager.getConnection(DB_URL, "root", PASSWORD);}
         st = con.createStatement();
         String query = "SELECT * FROM readers WHERE reader_id = " + id;
+        LOGGER.info("Query: " + query);
         rs = st.executeQuery(query);
         if (!rs.next()) {return null;}
         reader.setUsername(rs.getString(1));
@@ -122,6 +129,7 @@ public class DAOImpl {
         if (con == null) {con = DriverManager.getConnection(DB_URL, "root", PASSWORD);}
         st = con.createStatement();
         String query = "SELECT COUNT(*) FROM current_borrows WHERE reader = " + id;
+        LOGGER.info("Query: " + query);
         rs = st.executeQuery(query);
         while (rs.next()){
             count = rs.getInt(1);
@@ -139,6 +147,7 @@ public class DAOImpl {
         if (con == null) {con = DriverManager.getConnection(DB_URL, "root", PASSWORD);}
         st = con.createStatement();
         String query = "SELECT COUNT(*) FROM current_borrows WHERE reader = " + id + " AND date_of_return < CURRENT_DATE()";
+        LOGGER.info("Query: " + query);
         rs = st.executeQuery(query);
         while (rs.next()){
             count = rs.getInt(1);
@@ -156,6 +165,7 @@ public class DAOImpl {
         if (con == null) {con = DriverManager.getConnection(DB_URL, "root", PASSWORD);}
         st = con.createStatement();
         String query = "SELECT COUNT(*) FROM current_borrows WHERE document = " + id;
+        LOGGER.info("Query: " + query);
         rs = st.executeQuery(query);
         while (rs.next()){
             count = rs.getInt(1);
@@ -171,6 +181,7 @@ public class DAOImpl {
         if (con == null) {con = DriverManager.getConnection(DB_URL, "root", PASSWORD);}
         st = con.createStatement();
         String query = "INSERT INTO current_borrows (id, document, reader, date_of_borrow, date_of_return) VALUE (NULL, " + document_id + ", " + reader_id + ", CURRENT_DATE(), CURRENT_DATE() + INTERVAL 14 DAY )";
+        LOGGER.info("Query: " + query);
         st.executeUpdate(query);
         st.close();
     }
@@ -183,6 +194,7 @@ public class DAOImpl {
         if (con == null) {con = DriverManager.getConnection(DB_URL, "root", PASSWORD);}
         st = con.createStatement();
         String query = "SELECT COUNT(*) FROM accounts WHERE username = '" + username + "'";
+        LOGGER.info("Query: " + query);
         rs = st.executeQuery(query);
         while (rs.next()){
             count = rs.getInt(1);
@@ -197,12 +209,15 @@ public class DAOImpl {
         Class.forName("org.gjt.mm.mysql.Driver");
         if (con == null) {con = DriverManager.getConnection(DB_URL, "root", PASSWORD);}
         String query = "INSERT INTO readers (reader_id, first_name, last_name, date_of_birth, address, phone) VALUE (NULL, '" + firstname + "', '" + lastname + "', ?, '" + address + "', '" + phone + "')";
+        LOGGER.info("Query: " + query);
         st = con.prepareStatement(query);
+        LOGGER.info("Date: " + date);
         st.setDate(1, new java.sql.Date( date.getTime() ));
         st.executeUpdate();
         st.close();
         Statement st2 = con.createStatement();
         String query2 = "SELECT LAST_INSERT_ID()";
+        LOGGER.info("Query: " + query2);
         ResultSet rs = st2.executeQuery(query2);
         int id = 0;
         while (rs.next()){
@@ -223,6 +238,7 @@ public class DAOImpl {
         st = con.createStatement();
         String digested = md5digest(password);
         String query = "INSERT INTO accounts (username, password, role) VALUE ('" + username + "', '"+ digested +"', '" + role +"');";
+        LOGGER.info("Query: " + query);
         st.executeUpdate(query);
         st.close();
     }
@@ -234,6 +250,7 @@ public class DAOImpl {
         st = con.createStatement();
         String digested = md5digest(password);
         String query = "UPDATE accounts SET password = '"+ digested + "' WHERE username = '" + username +"'";
+        LOGGER.info("Query: " + query);
         st.executeUpdate(query);
         st.close();
     }
@@ -244,6 +261,7 @@ public class DAOImpl {
         if (con == null) {con = DriverManager.getConnection(DB_URL, "root", PASSWORD);}
         st = con.createStatement();
         String query = "SELECT role FROM accounts WHERE username = '" + username +"'";
+        LOGGER.info("Query: " + query);
         ResultSet rs = st.executeQuery(query);
         rs.next();
         if (rs.getString(1).equals("reader")){
@@ -252,6 +270,7 @@ public class DAOImpl {
             query = "DELETE FROM accounts WHERE username = '" + username +"'";
         }
         rs.close();
+        LOGGER.info("Query: " + query);
         st.executeUpdate(query);
         st.close();
     }
@@ -294,8 +313,10 @@ public class DAOImpl {
         query = query.concat(", is_repaired)");
         query2 = query2.concat(", FALSE)");
         query = query.concat(query2);
+        LOGGER.info("Query: " + query);
         st.executeUpdate(query);
         query2 = "SELECT LAST_INSERT_ID()";
+        LOGGER.info("Query: " + query2);
         ResultSet rs = st.executeQuery(query2);
         int id = 0;
         while (rs.next()){
@@ -314,15 +335,19 @@ public class DAOImpl {
         String query;
         if (action.equals("return")){
             query = "DELETE FROM current_borrows WHERE document = "+ id;
+            LOGGER.info("Query: " + query);
             st.executeUpdate(query);}
         if (action.equals("delete")){
             query = "DELETE FROM documents WHERE document_id = "+ id;
+            LOGGER.info("Query: " + query);
             st.executeUpdate(query);}
         if (action.equals("repair true")){
             query = "UPDATE documents SET is_repaired = TRUE WHERE document_id = "+ id;
+            LOGGER.info("Query: " + query);
             st.executeUpdate(query);}
         if (action.equals("repair false")){
             query = "UPDATE documents SET is_repaired = FALSE WHERE document_id = "+ id;
+            LOGGER.info("Query: " + query);
             st.executeUpdate(query);}
 
         st.close();
