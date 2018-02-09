@@ -11,7 +11,7 @@ import java.util.*;
 import org.apache.log4j.Logger;
 
 public class DAOImpl {
-    public static final String PASSWORD = "******";
+    public static final String PASSWORD = "*******";
     private static DAOImpl instance = new DAOImpl();
     public static DAOImpl getInstance(){
         return instance;
@@ -33,7 +33,7 @@ public class DAOImpl {
         if (!criteria.equals("")) {
             query = query.concat(" WHERE " + criteria);
         }
-        LOGGER.info("Query: " + query);
+        LOGGER.error("some error message");
         rs = st.executeQuery(query);
         while (rs.next()) {
             Document document = new Document();
