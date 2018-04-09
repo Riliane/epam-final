@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
@@ -28,11 +26,7 @@ public class DeleteUser extends HttpServlet {
             }catch (ClassNotFoundException e){
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading SQL connection driver");
             }catch (SQLException e){
-                StringWriter sw = new StringWriter();
-                PrintWriter pw = new PrintWriter(sw);
-                e.printStackTrace(pw);
-                String sStackTrace = sw.toString();
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "SQL error\n" + sStackTrace);
+                ShortMsgDisplayer.getInstance().displayException(response, e, "SQL error");
             }catch (NoSuchAlgorithmException e){
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error calculating MD5");
             }

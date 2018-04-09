@@ -1,4 +1,5 @@
 import dao.DAOImpl;
+import view.ShortMsgDisplayer;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -6,31 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
-import java.text.ParseException;
-
-/**
- * Created by Nana on 25.01.2018.
- */
 public class AddLibrarian extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        if (!request.getParameter("password").equals(request.getParameter("repeat"))) {
-            request.setAttribute("error", 1);
-            RequestDispatcher view = request.getRequestDispatcher("addLibrarian.jsp");
-            view.forward(request, response);
-        } else if (!request.getParameter("username").matches("\\S*[a-zA-Z]\\S*")) {
-            request.setAttribute("error", 4);
-            RequestDispatcher view = request.getRequestDispatcher("addLibrarian.jsp");
-            view.forward(request, response);
-        } else {
             try {
+                int error = checkInput(request);
                 DAOImpl dao = DAOImpl.getInstance();
-                if (!dao.checkUsername(request.getParameter("username"))) {
-                    request.setAttribute("error", 3);
+                if (error != 0) {
+                    request.setAttribute("error", error);
                     RequestDispatcher view = request.getRequestDispatcher("addLibrarian.jsp");
                     view.forward(request, response);
                 }
@@ -42,14 +28,24 @@ public class AddLibrarian extends HttpServlet {
             } catch (ClassNotFoundException e) {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading SQL connection driver");
             } catch (SQLException e) {
-                StringWriter sw = new StringWriter();
-                PrintWriter pw = new PrintWriter(sw);
-                e.printStackTrace(pw);
-                String sStackTrace = sw.toString();
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "SQL error\n" + sStackTrace);
+                ShortMsgDisplayer.getInstance().displayException(response, e, "SQL error");
             } catch (NoSuchAlgorithmException e) {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error encrypting password");
             }
         }
+
+    int checkInput(HttpServletRequest request) throws SQLException, ClassNotFoundException{
+        int error = 0;
+        if (!request.getParameter("password").equals(request.getParameter("repeat"))) {
+            error = 1;
+        } else if (!request.getParameter("username").matches("\\S*[a-zA-Z]\\S*")) {
+            error = 4;
+        } else{
+            DAOImpl dao = DAOImpl.getInstance();
+            if (!dao.checkUsername(request.getParameter("username"))) {
+                error = 3;
+            }
+        }
+        return error;
     }
 }

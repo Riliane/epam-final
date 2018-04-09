@@ -11,7 +11,7 @@ import java.util.*;
 import org.apache.log4j.Logger;
 
 public class DAOImpl {
-    public static final String PASSWORD = "*******";
+    public static final String PASSWORD = "********";
     private static DAOImpl instance = new DAOImpl();
     public static DAOImpl getInstance(){
         return instance;

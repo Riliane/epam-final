@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 
 public class ShortMsgDisplayer {
     private ShortMsgDisplayer(){}
@@ -33,5 +34,13 @@ public class ShortMsgDisplayer {
         out.println("</head><body>");
         out.println("div class=\"error-message\"" + message + "</div>");
         out.println("</body></html>");
+    }
+
+    public void displayException(HttpServletResponse response, Exception e, String message) throws IOException{
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+        String sStackTrace = sw.toString();
+        response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, message + "\n" + sStackTrace);
     }
 }
