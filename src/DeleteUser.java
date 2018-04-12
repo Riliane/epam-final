@@ -22,7 +22,7 @@ public class DeleteUser extends HttpServlet {
             try {
                 DAOImpl dao = DAOImpl.getInstance();
                 dao.deleteUser(request.getParameter("id"));
-                ShortMsgDisplayer.getInstance().displayMessage("Пользователь удален", response);
+                ShortMsgDisplayer.getInstance().displayMessage("userDeleted", request, response);
             }catch (ClassNotFoundException e){
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading SQL connection driver");
             }catch (SQLException e){
