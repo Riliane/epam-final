@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e192dee9-4c63-4825-bbe5-9f7546805450" name="Default" comment="Added localization">
+    <list default="true" id="e192dee9-4c63-4825-bbe5-9f7546805450" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/admin/addLibrarian.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/admin/addLibrarian.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/admin/addReader.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/admin/addReader.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/admin/admin.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/admin/admin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/admin/deleteUser.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/admin/deleteUser.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/admin/registerSuccess.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/admin/registerSuccess.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/changePassword.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/changePassword.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/documentInfo.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/documentInfo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/login.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/login_fail.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/login_fail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/manage/addDocument.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/manage/addDocument.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/order_fail.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/order_fail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/style.css" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/userInfo.jsp" afterPath="$PROJECT_DIR$/out/artifacts/epam_final_war_exploded/userInfo.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dao/DAOImpl.java" afterPath="$PROJECT_DIR$/src/dao/DAOImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,58 +22,58 @@
       <file leaf-file-name="DAOImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dao/DAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            <state relative-caret-position="255">
+              <caret line="34" column="9" lean-forward="false" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
               <folding>
-                <marker date="1523547863460" expanded="true" signature="1070:1122" ph="SELECT docum... " />
-                <marker date="1523547863460" expanded="true" signature="1070:1137" ph="SELECT docum... documents" />
-                <marker date="1523547863460" expanded="true" signature="2060:2104" ph="SELECT * FRO... documents" />
-                <marker date="1523547863460" expanded="true" signature="3131:3184" ph="SELECT usern... accounts" />
-                <marker date="1523547863460" expanded="true" signature="3131:3185" ph="SELECT usern... accounts" />
-                <marker date="1523547863460" expanded="true" signature="3131:3191" ph="SELECT usern... accounts" />
-                <marker date="1523547863460" expanded="true" signature="3131:3196" ph="SELECT usern... accounts" />
-                <marker date="1523547863460" expanded="true" signature="3958:3998" ph="SELECT usern... accounts" />
-                <marker date="1523547863460" expanded="true" signature="4853:4905" ph="SELECT COUNT... current_borrows" />
-                <marker date="1523547863460" expanded="true" signature="5492:5544" ph="SELECT COUNT... current_borrows" />
-                <marker date="1523547863460" expanded="true" signature="5492:5590" ph="SELECT COUNT... current_borrows" />
-                <marker date="1523547863460" expanded="true" signature="6180:6234" ph="SELECT COUNT... current_borrows" />
-                <marker date="1523547863460" expanded="true" signature="6791:6886" ph="INSERT INTO current_borrows... " />
-                <marker date="1523547863460" expanded="true" signature="6791:6887" ph="INSERT INTO current_borrows... " />
-                <marker date="1523547863460" expanded="true" signature="6791:6907" ph="INSERT INTO current_borrows... " />
-                <marker date="1523547863460" expanded="true" signature="6791:6908" ph="INSERT INTO current_borrows... " />
-                <marker date="1523547863460" expanded="true" signature="6791:6977" ph="INSERT INTO current_borrows... " />
-                <marker date="1523547863460" expanded="true" signature="7455:7503" ph="SELECT COUNT... accounts" />
-                <marker date="1523547863460" expanded="true" signature="7455:7520" ph="SELECT COUNT... accounts" />
-                <marker date="1523547863460" expanded="true" signature="8148:8290" ph="INSERT INTO readers... " />
-                <marker date="1523547863460" expanded="true" signature="8148:8291" ph="INSERT INTO readers... " />
-                <marker date="1523547863460" expanded="true" signature="8148:8309" ph="INSERT INTO readers... " />
-                <marker date="1523547863460" expanded="true" signature="8148:8310" ph="INSERT INTO readers... " />
-                <marker date="1523547863460" expanded="true" signature="8148:8320" ph="INSERT INTO readers... " />
-                <marker date="1523547863460" expanded="true" signature="8148:8326" ph="INSERT INTO readers... " />
-                <marker date="1523547863460" expanded="true" signature="8629:8652" ph="SELECT LAST_... " />
-                <marker date="1523547863460" expanded="true" signature="9568:9660" ph="INSERT INTO accounts... " />
-                <marker date="1523547863460" expanded="true" signature="9568:9661" ph="INSERT INTO accounts... " />
-                <marker date="1523547863460" expanded="true" signature="9568:9675" ph="INSERT INTO accounts... " />
-                <marker date="1523547863460" expanded="true" signature="10189:10221" ph="UPDATE accou... " />
-                <marker date="1523547863460" expanded="true" signature="10189:10256" ph="UPDATE accou... " />
-                <marker date="1523547863460" expanded="true" signature="10189:10272" ph="UPDATE accou... " />
-                <marker date="1523547863460" expanded="true" signature="10717:10777" ph="SELECT role accounts" />
-                <marker date="1523547863460" expanded="true" signature="10954:11009" ph="DELETE FROM " />
-                <marker date="1523547863460" expanded="true" signature="10960:11009" ph="UPDATE accou... " />
-                <marker date="1523547863460" expanded="true" signature="11050:11105" ph="DELETE FROM " />
-                <marker date="1523547863460" expanded="true" signature="12080:12159" ph="INSERT INTO documents... " />
-                <marker date="1523547863460" expanded="true" signature="12080:12203" ph="INSERT INTO documents... " />
-                <marker date="1523547863460" expanded="true" signature="12080:12215" ph="INSERT INTO documents... " />
-                <marker date="1523547863460" expanded="true" signature="12080:12218" ph="INSERT INTO documents... " />
-                <marker date="1523547863460" expanded="true" signature="12080:12254" ph="INSERT INTO documents... " />
-                <marker date="1523547863460" expanded="true" signature="12080:12277" ph="INSERT INTO documents... " />
-                <marker date="1523547863460" expanded="true" signature="13096:13119" ph="SELECT LAST_... " />
-                <marker date="1523547863460" expanded="true" signature="13749:13793" ph="DELETE FROM " />
-                <marker date="1523547863460" expanded="true" signature="13749:13794" ph="DELETE FROM " />
-                <marker date="1523547863460" expanded="true" signature="13749:13800" ph="DELETE FROM " />
-                <marker date="1523547863460" expanded="true" signature="13942:13984" ph="DELETE FROM " />
-                <marker date="1523547863460" expanded="true" signature="14137:14197" ph="DELETE FROM " />
-                <marker date="1523547863460" expanded="true" signature="14351:14412" ph="DELETE FROM " />
+                <marker date="1523548167769" expanded="true" signature="1070:1122" ph="SELECT docum... " />
+                <marker date="1523548167769" expanded="true" signature="1070:1137" ph="SELECT docum... documents" />
+                <marker date="1523548167769" expanded="true" signature="2016:2060" ph="SELECT * FRO... documents" />
+                <marker date="1523548167769" expanded="true" signature="3087:3140" ph="SELECT usern... accounts" />
+                <marker date="1523548167769" expanded="true" signature="3087:3141" ph="SELECT usern... accounts" />
+                <marker date="1523548167769" expanded="true" signature="3087:3147" ph="SELECT usern... accounts" />
+                <marker date="1523548167769" expanded="true" signature="3087:3152" ph="SELECT usern... accounts" />
+                <marker date="1523548167769" expanded="true" signature="3914:3954" ph="SELECT usern... accounts" />
+                <marker date="1523548167769" expanded="true" signature="4809:4861" ph="SELECT COUNT... current_borrows" />
+                <marker date="1523548167769" expanded="true" signature="5448:5500" ph="SELECT COUNT... current_borrows" />
+                <marker date="1523548167769" expanded="true" signature="5448:5546" ph="SELECT COUNT... current_borrows" />
+                <marker date="1523548167769" expanded="true" signature="6136:6190" ph="SELECT COUNT... current_borrows" />
+                <marker date="1523548167769" expanded="true" signature="6747:6842" ph="INSERT INTO current_borrows... " />
+                <marker date="1523548167769" expanded="true" signature="6747:6843" ph="INSERT INTO current_borrows... " />
+                <marker date="1523548167769" expanded="true" signature="6747:6863" ph="INSERT INTO current_borrows... " />
+                <marker date="1523548167769" expanded="true" signature="6747:6864" ph="INSERT INTO current_borrows... " />
+                <marker date="1523548167769" expanded="true" signature="6747:6933" ph="INSERT INTO current_borrows... " />
+                <marker date="1523548167769" expanded="true" signature="7411:7459" ph="SELECT COUNT... accounts" />
+                <marker date="1523548167769" expanded="true" signature="7411:7476" ph="SELECT COUNT... accounts" />
+                <marker date="1523548167769" expanded="true" signature="8104:8246" ph="INSERT INTO readers... " />
+                <marker date="1523548167769" expanded="true" signature="8104:8247" ph="INSERT INTO readers... " />
+                <marker date="1523548167769" expanded="true" signature="8104:8265" ph="INSERT INTO readers... " />
+                <marker date="1523548167769" expanded="true" signature="8104:8266" ph="INSERT INTO readers... " />
+                <marker date="1523548167769" expanded="true" signature="8104:8276" ph="INSERT INTO readers... " />
+                <marker date="1523548167769" expanded="true" signature="8104:8282" ph="INSERT INTO readers... " />
+                <marker date="1523548167769" expanded="true" signature="8585:8608" ph="SELECT LAST_... " />
+                <marker date="1523548167769" expanded="true" signature="9524:9616" ph="INSERT INTO accounts... " />
+                <marker date="1523548167769" expanded="true" signature="9524:9617" ph="INSERT INTO accounts... " />
+                <marker date="1523548167769" expanded="true" signature="9524:9631" ph="INSERT INTO accounts... " />
+                <marker date="1523548167769" expanded="true" signature="10145:10177" ph="UPDATE accou... " />
+                <marker date="1523548167769" expanded="true" signature="10145:10212" ph="UPDATE accou... " />
+                <marker date="1523548167769" expanded="true" signature="10145:10228" ph="UPDATE accou... " />
+                <marker date="1523548167769" expanded="true" signature="10673:10733" ph="SELECT role accounts" />
+                <marker date="1523548167769" expanded="true" signature="10910:10965" ph="DELETE FROM " />
+                <marker date="1523548167769" expanded="true" signature="10916:10965" ph="UPDATE accou... " />
+                <marker date="1523548167769" expanded="true" signature="11006:11061" ph="DELETE FROM " />
+                <marker date="1523548167769" expanded="true" signature="12036:12115" ph="INSERT INTO documents... " />
+                <marker date="1523548167769" expanded="true" signature="12036:12159" ph="INSERT INTO documents... " />
+                <marker date="1523548167769" expanded="true" signature="12036:12171" ph="INSERT INTO documents... " />
+                <marker date="1523548167769" expanded="true" signature="12036:12174" ph="INSERT INTO documents... " />
+                <marker date="1523548167769" expanded="true" signature="12036:12210" ph="INSERT INTO documents... " />
+                <marker date="1523548167769" expanded="true" signature="12036:12233" ph="INSERT INTO documents... " />
+                <marker date="1523548167769" expanded="true" signature="13052:13075" ph="SELECT LAST_... " />
+                <marker date="1523548167769" expanded="true" signature="13705:13749" ph="DELETE FROM " />
+                <marker date="1523548167769" expanded="true" signature="13705:13750" ph="DELETE FROM " />
+                <marker date="1523548167769" expanded="true" signature="13705:13756" ph="DELETE FROM " />
+                <marker date="1523548167769" expanded="true" signature="13898:13940" ph="DELETE FROM " />
+                <marker date="1523548167769" expanded="true" signature="14093:14153" ph="DELETE FROM " />
+                <marker date="1523548167769" expanded="true" signature="14307:14368" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -341,24 +328,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="epam-final" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="epam-final" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resource Bundle 'text'" />
-              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -910,7 +879,7 @@
       <workItem from="1521473430738" duration="2929000" />
       <workItem from="1521812802050" duration="648000" />
       <workItem from="1523281651106" duration="3350000" />
-      <workItem from="1523534608845" duration="13026000" />
+      <workItem from="1523534608845" duration="13329000" />
     </task>
     <task id="LOCAL-00001" summary="Added localization">
       <created>1523547725071</created>
@@ -919,11 +888,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523547725071</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added localization">
+      <created>1523547901766</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523547901766</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121763000" />
+    <option name="totallyTimeSpent" value="122066000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -931,7 +907,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.1068814" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30441642" sideWeight="0.124076806" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -948,7 +924,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30441642" sideWeight="0.8931186" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30441642" sideWeight="0.8759232" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24298376" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
@@ -1166,7 +1142,7 @@
         <state relative-caret-position="170">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1389,58 +1365,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/DAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="34" column="9" lean-forward="false" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
           <folding>
-            <marker date="1523547863460" expanded="true" signature="1070:1122" ph="SELECT docum... " />
-            <marker date="1523547863460" expanded="true" signature="1070:1137" ph="SELECT docum... documents" />
-            <marker date="1523547863460" expanded="true" signature="2060:2104" ph="SELECT * FRO... documents" />
-            <marker date="1523547863460" expanded="true" signature="3131:3184" ph="SELECT usern... accounts" />
-            <marker date="1523547863460" expanded="true" signature="3131:3185" ph="SELECT usern... accounts" />
-            <marker date="1523547863460" expanded="true" signature="3131:3191" ph="SELECT usern... accounts" />
-            <marker date="1523547863460" expanded="true" signature="3131:3196" ph="SELECT usern... accounts" />
-            <marker date="1523547863460" expanded="true" signature="3958:3998" ph="SELECT usern... accounts" />
-            <marker date="1523547863460" expanded="true" signature="4853:4905" ph="SELECT COUNT... current_borrows" />
-            <marker date="1523547863460" expanded="true" signature="5492:5544" ph="SELECT COUNT... current_borrows" />
-            <marker date="1523547863460" expanded="true" signature="5492:5590" ph="SELECT COUNT... current_borrows" />
-            <marker date="1523547863460" expanded="true" signature="6180:6234" ph="SELECT COUNT... current_borrows" />
-            <marker date="1523547863460" expanded="true" signature="6791:6886" ph="INSERT INTO current_borrows... " />
-            <marker date="1523547863460" expanded="true" signature="6791:6887" ph="INSERT INTO current_borrows... " />
-            <marker date="1523547863460" expanded="true" signature="6791:6907" ph="INSERT INTO current_borrows... " />
-            <marker date="1523547863460" expanded="true" signature="6791:6908" ph="INSERT INTO current_borrows... " />
-            <marker date="1523547863460" expanded="true" signature="6791:6977" ph="INSERT INTO current_borrows... " />
-            <marker date="1523547863460" expanded="true" signature="7455:7503" ph="SELECT COUNT... accounts" />
-            <marker date="1523547863460" expanded="true" signature="7455:7520" ph="SELECT COUNT... accounts" />
-            <marker date="1523547863460" expanded="true" signature="8148:8290" ph="INSERT INTO readers... " />
-            <marker date="1523547863460" expanded="true" signature="8148:8291" ph="INSERT INTO readers... " />
-            <marker date="1523547863460" expanded="true" signature="8148:8309" ph="INSERT INTO readers... " />
-            <marker date="1523547863460" expanded="true" signature="8148:8310" ph="INSERT INTO readers... " />
-            <marker date="1523547863460" expanded="true" signature="8148:8320" ph="INSERT INTO readers... " />
-            <marker date="1523547863460" expanded="true" signature="8148:8326" ph="INSERT INTO readers... " />
-            <marker date="1523547863460" expanded="true" signature="8629:8652" ph="SELECT LAST_... " />
-            <marker date="1523547863460" expanded="true" signature="9568:9660" ph="INSERT INTO accounts... " />
-            <marker date="1523547863460" expanded="true" signature="9568:9661" ph="INSERT INTO accounts... " />
-            <marker date="1523547863460" expanded="true" signature="9568:9675" ph="INSERT INTO accounts... " />
-            <marker date="1523547863460" expanded="true" signature="10189:10221" ph="UPDATE accou... " />
-            <marker date="1523547863460" expanded="true" signature="10189:10256" ph="UPDATE accou... " />
-            <marker date="1523547863460" expanded="true" signature="10189:10272" ph="UPDATE accou... " />
-            <marker date="1523547863460" expanded="true" signature="10717:10777" ph="SELECT role accounts" />
-            <marker date="1523547863460" expanded="true" signature="10954:11009" ph="DELETE FROM " />
-            <marker date="1523547863460" expanded="true" signature="10960:11009" ph="UPDATE accou... " />
-            <marker date="1523547863460" expanded="true" signature="11050:11105" ph="DELETE FROM " />
-            <marker date="1523547863460" expanded="true" signature="12080:12159" ph="INSERT INTO documents... " />
-            <marker date="1523547863460" expanded="true" signature="12080:12203" ph="INSERT INTO documents... " />
-            <marker date="1523547863460" expanded="true" signature="12080:12215" ph="INSERT INTO documents... " />
-            <marker date="1523547863460" expanded="true" signature="12080:12218" ph="INSERT INTO documents... " />
-            <marker date="1523547863460" expanded="true" signature="12080:12254" ph="INSERT INTO documents... " />
-            <marker date="1523547863460" expanded="true" signature="12080:12277" ph="INSERT INTO documents... " />
-            <marker date="1523547863460" expanded="true" signature="13096:13119" ph="SELECT LAST_... " />
-            <marker date="1523547863460" expanded="true" signature="13749:13793" ph="DELETE FROM " />
-            <marker date="1523547863460" expanded="true" signature="13749:13794" ph="DELETE FROM " />
-            <marker date="1523547863460" expanded="true" signature="13749:13800" ph="DELETE FROM " />
-            <marker date="1523547863460" expanded="true" signature="13942:13984" ph="DELETE FROM " />
-            <marker date="1523547863460" expanded="true" signature="14137:14197" ph="DELETE FROM " />
-            <marker date="1523547863460" expanded="true" signature="14351:14412" ph="DELETE FROM " />
+            <marker date="1523548167769" expanded="true" signature="1070:1122" ph="SELECT docum... " />
+            <marker date="1523548167769" expanded="true" signature="1070:1137" ph="SELECT docum... documents" />
+            <marker date="1523548167769" expanded="true" signature="2016:2060" ph="SELECT * FRO... documents" />
+            <marker date="1523548167769" expanded="true" signature="3087:3140" ph="SELECT usern... accounts" />
+            <marker date="1523548167769" expanded="true" signature="3087:3141" ph="SELECT usern... accounts" />
+            <marker date="1523548167769" expanded="true" signature="3087:3147" ph="SELECT usern... accounts" />
+            <marker date="1523548167769" expanded="true" signature="3087:3152" ph="SELECT usern... accounts" />
+            <marker date="1523548167769" expanded="true" signature="3914:3954" ph="SELECT usern... accounts" />
+            <marker date="1523548167769" expanded="true" signature="4809:4861" ph="SELECT COUNT... current_borrows" />
+            <marker date="1523548167769" expanded="true" signature="5448:5500" ph="SELECT COUNT... current_borrows" />
+            <marker date="1523548167769" expanded="true" signature="5448:5546" ph="SELECT COUNT... current_borrows" />
+            <marker date="1523548167769" expanded="true" signature="6136:6190" ph="SELECT COUNT... current_borrows" />
+            <marker date="1523548167769" expanded="true" signature="6747:6842" ph="INSERT INTO current_borrows... " />
+            <marker date="1523548167769" expanded="true" signature="6747:6843" ph="INSERT INTO current_borrows... " />
+            <marker date="1523548167769" expanded="true" signature="6747:6863" ph="INSERT INTO current_borrows... " />
+            <marker date="1523548167769" expanded="true" signature="6747:6864" ph="INSERT INTO current_borrows... " />
+            <marker date="1523548167769" expanded="true" signature="6747:6933" ph="INSERT INTO current_borrows... " />
+            <marker date="1523548167769" expanded="true" signature="7411:7459" ph="SELECT COUNT... accounts" />
+            <marker date="1523548167769" expanded="true" signature="7411:7476" ph="SELECT COUNT... accounts" />
+            <marker date="1523548167769" expanded="true" signature="8104:8246" ph="INSERT INTO readers... " />
+            <marker date="1523548167769" expanded="true" signature="8104:8247" ph="INSERT INTO readers... " />
+            <marker date="1523548167769" expanded="true" signature="8104:8265" ph="INSERT INTO readers... " />
+            <marker date="1523548167769" expanded="true" signature="8104:8266" ph="INSERT INTO readers... " />
+            <marker date="1523548167769" expanded="true" signature="8104:8276" ph="INSERT INTO readers... " />
+            <marker date="1523548167769" expanded="true" signature="8104:8282" ph="INSERT INTO readers... " />
+            <marker date="1523548167769" expanded="true" signature="8585:8608" ph="SELECT LAST_... " />
+            <marker date="1523548167769" expanded="true" signature="9524:9616" ph="INSERT INTO accounts... " />
+            <marker date="1523548167769" expanded="true" signature="9524:9617" ph="INSERT INTO accounts... " />
+            <marker date="1523548167769" expanded="true" signature="9524:9631" ph="INSERT INTO accounts... " />
+            <marker date="1523548167769" expanded="true" signature="10145:10177" ph="UPDATE accou... " />
+            <marker date="1523548167769" expanded="true" signature="10145:10212" ph="UPDATE accou... " />
+            <marker date="1523548167769" expanded="true" signature="10145:10228" ph="UPDATE accou... " />
+            <marker date="1523548167769" expanded="true" signature="10673:10733" ph="SELECT role accounts" />
+            <marker date="1523548167769" expanded="true" signature="10910:10965" ph="DELETE FROM " />
+            <marker date="1523548167769" expanded="true" signature="10916:10965" ph="UPDATE accou... " />
+            <marker date="1523548167769" expanded="true" signature="11006:11061" ph="DELETE FROM " />
+            <marker date="1523548167769" expanded="true" signature="12036:12115" ph="INSERT INTO documents... " />
+            <marker date="1523548167769" expanded="true" signature="12036:12159" ph="INSERT INTO documents... " />
+            <marker date="1523548167769" expanded="true" signature="12036:12171" ph="INSERT INTO documents... " />
+            <marker date="1523548167769" expanded="true" signature="12036:12174" ph="INSERT INTO documents... " />
+            <marker date="1523548167769" expanded="true" signature="12036:12210" ph="INSERT INTO documents... " />
+            <marker date="1523548167769" expanded="true" signature="12036:12233" ph="INSERT INTO documents... " />
+            <marker date="1523548167769" expanded="true" signature="13052:13075" ph="SELECT LAST_... " />
+            <marker date="1523548167769" expanded="true" signature="13705:13749" ph="DELETE FROM " />
+            <marker date="1523548167769" expanded="true" signature="13705:13750" ph="DELETE FROM " />
+            <marker date="1523548167769" expanded="true" signature="13705:13756" ph="DELETE FROM " />
+            <marker date="1523548167769" expanded="true" signature="13898:13940" ph="DELETE FROM " />
+            <marker date="1523548167769" expanded="true" signature="14093:14153" ph="DELETE FROM " />
+            <marker date="1523548167769" expanded="true" signature="14307:14368" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>

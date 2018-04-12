@@ -33,7 +33,6 @@ public class DAOImpl {
         if (!criteria.equals("")) {
             query = query.concat(" WHERE " + criteria);
         }
-        logger.error("some error message");
         rs = st.executeQuery(query);
         while (rs.next()) {
             Document document = new Document();
