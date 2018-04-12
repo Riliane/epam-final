@@ -6,12 +6,21 @@
 
 
     <servlet>
-    <servlet-name>Search</servlet-name>
-    <servlet-class>Search</servlet-class>
+        <servlet-name>DocumentSearch</servlet-name>
+        <servlet-class>DocumentSearch</servlet-class>
 </servlet>
     <servlet-mapping>
-        <servlet-name>Search</servlet-name>
-        <url-pattern>/search</url-pattern>
+        <servlet-name>DocumentSearch</servlet-name>
+        <url-pattern>/documentsearch</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReaderSearch</servlet-name>
+        <servlet-class>ReaderSearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReaderSearch</servlet-name>
+        <url-pattern>/readersearch</url-pattern>
     </servlet-mapping>
 
     <servlet>

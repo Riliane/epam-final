@@ -19,15 +19,17 @@
 %>
 <html>
 <head>
-    <title><%=bundle.getString("loginPage")%></title>
+    <title><%=bundle.getString("loginPage")%>
+    </title>
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
 <div class="login-form-container">
 <form method="POST" action="j_security_check">
-    <div class="form-element"><%=bundle.getString("username")%>:<input type="text" name="j_username"></div><br>
+    <div class="form-element"><%=bundle.getString("username")%>:<input type="text" name="j_username"></div>
+    <br>
     <div class="form-element"><%=bundle.getString("password")%>:<input type="password" name="j_password"></div>
-    <div class="form-element"><input type="submit" value="<%=bundle.getString("loginButton")%>" ></div>
+    <div class="form-element"><input type="submit" value="<%=bundle.getString("loginButton")%>"></div>
 </form>
 </div>
 </body>

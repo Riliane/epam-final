@@ -1,5 +1,6 @@
 <%@ page import="java.util.Locale" %>
-<%@ page import="java.util.ResourceBundle" %><% Locale locale = (Locale) session.getAttribute("locale");
+<%@ page import="java.util.ResourceBundle" %>
+<% Locale locale = (Locale) session.getAttribute("locale");
     String lang = request.getParameter("lang");
     if (lang != null) {
         if (lang.equals("en")) {
@@ -18,7 +19,8 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <title><%=bundle.getString("registerSuccess")%></title>
+    <title><%=bundle.getString("registerSuccess")%>
+    </title>
 </head>
 <body><div class="message">
     <%=bundle.getString("userRegistered")%><br>

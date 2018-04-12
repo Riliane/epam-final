@@ -19,7 +19,8 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <title><%=bundle.getString("addDocument")%></title>
+    <title><%=bundle.getString("addDocument")%>
+    </title>
 </head>
 <body>
 <div class="form-container"><form action="adddocument" method="post">

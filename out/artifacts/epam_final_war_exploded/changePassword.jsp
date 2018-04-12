@@ -19,15 +19,18 @@
     ResourceBundle bundle = ResourceBundle.getBundle("text", locale);%>
 <html>
 <head>
-    <title><%=bundle.getString("changePassword")%></title>
+    <title><%=bundle.getString("changePassword")%>
+    </title>
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body><c:choose>
     <c:when test="${pageContext.request.isUserInRole('admin') || pageContext.request.remoteUser == id}">
         <div class="login-form-container"><form action="changePassword" method="post">
-        <input type="text" value="${param.id}" name="id" hidden>
-            <div class="form-element"><%=bundle.getString("newPassword")%> <input type="password" name="password" required></div>
-            <div class="form-element"><%=bundle.getString("repeatPassword")%> <input type="password" name="repeat" required></div>
+            <input type="text" value="${param.id}" name="id" hidden>
+            <div class="form-element"><%=bundle.getString("newPassword")%> <input type="password" name="password"
+                                                                                  required></div>
+            <div class="form-element"><%=bundle.getString("repeatPassword")%> <input type="password" name="repeat"
+                                                                                     required></div>
             <div class="form-element"><input type="submit"/></div>
         </form></div>
     </c:when>

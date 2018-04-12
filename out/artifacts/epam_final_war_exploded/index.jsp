@@ -40,7 +40,7 @@
                                                                  class="topbar-section topbar-link"><%=bundle.getString("adminOptions")%>
     </a></c:if>
     <c:if test="${pageContext.request.isUserInRole('librarian')}"><a href="manage/addDocument.jsp"
-                                                                 class="topbar-section topbar-link"><%=bundle.getString("addDocument")%>
+                                                                     class="topbar-section topbar-link"><%=bundle.getString("addDocument")%>
     </a></c:if>
     <a href="index.jsp?lang=en" class="topbar-section topbar-language"><img src="gb.png">EN</a>
     <a href="index.jsp?lang=ru" class="topbar-section topbar-language"><img src="ru.png">RU</a>
@@ -57,7 +57,7 @@
     </form>
 </div>
 <div class="form-container">
-    <form action="search" method="get">
+    <form action="documentsearch" method="get">
         <div class="form-element"><%=bundle.getString("document.title")%> <input type="text" name="name"></div>
         <div class="form-element"><%=bundle.getString("document.author")%> <input type="text" name="author"></div>
         <div class="form-element"><%=bundle.getString("document.publisher")%> <input type="text" name="publisher"></div>
@@ -78,9 +78,12 @@
         <%=bundle.getString("searchResults")%>
         <table class="restable">
             <tr>
-                <th><%=bundle.getString("document.title")%></th>
-                <th><%=bundle.getString("document.author")%></th>
-                <th><%=bundle.getString("document.year")%></th>
+                <th><%=bundle.getString("document.title")%>
+                </th>
+                <th><%=bundle.getString("document.author")%>
+                </th>
+                <th><%=bundle.getString("document.year")%>
+                </th>
             </tr>
             <c:forEach items="${list}" var="item">
                 <tr>

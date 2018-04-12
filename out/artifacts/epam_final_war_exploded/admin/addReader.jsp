@@ -20,18 +20,25 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <title><%=bundle.getString("addReader")%></title>
+    <title><%=bundle.getString("addReader")%>
+    </title>
 </head>
 <body>
-<c:if test="${error==1}"><div class="error-message"><%=bundle.getString("passwordMismatch")%></div></c:if>
+<c:if test="${error==1}">
+    <div class="error-message"><%=bundle.getString("passwordMismatch")%>
+    </div>
+</c:if>
 <div class="login-form-container"><form action="addreader" method="post">
-    <div class="form-element"><%=bundle.getString("user.firstName")%> <input type="text" name="firstname" required></div>
+    <div class="form-element"><%=bundle.getString("user.firstName")%> <input type="text" name="firstname" required>
+    </div>
     <div class="form-element"><%=bundle.getString("user.lastName")%> <input type="text" name="lastname" required></div>
     <div class="form-element"><%=bundle.getString("user.address")%> <input type="text" name="address" required></div>
     <div class="form-element"><%=bundle.getString("user.phone")%> <input type="text" name="phone" required></div>
-    <div class="form-element"><%=bundle.getString("user.birthDate")%> <input type="date" name="dateofbirth" required></div>
+    <div class="form-element"><%=bundle.getString("user.birthDate")%> <input type="date" name="dateofbirth" required>
+    </div>
     <div class="form-element"><%=bundle.getString("password")%> <input type="password" name="password" required></div>
-    <div class="form-element"><%=bundle.getString("repeatPassword")%> <input type="password" name="repeat" required></div>
+    <div class="form-element"><%=bundle.getString("repeatPassword")%> <input type="password" name="repeat" required>
+    </div>
     <div class="form-element"><input type="submit" value="<%=bundle.getString("submit")%>"/></div>
 </form></div>
 </body>

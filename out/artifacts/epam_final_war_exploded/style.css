@@ -43,16 +43,19 @@ a.topbar-section:link, a.topbar-section:visited{
     float: right;
     text-decoration: none;
 }
-a.topbar-link{
+
+a.topbar-link {
     width: 150px;
 }
 a.topbar-section:hover{
     background-color: slateblue;
 }
-a.topbar-language{
-    width:50px;
+
+a.topbar-language {
+    width: 50px;
 }
-a.active{
+
+a.active {
     background-color: powderblue;
 }
 /*.topbar-section a{

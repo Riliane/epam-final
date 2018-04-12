@@ -28,14 +28,18 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <title><%=bundle.getString("error")%></title>
+    <title><%=bundle.getString("error")%>
+    </title>
 </head>
 <body>
 <div class="error-message">
-<%=bundle.getString("orderForbidden")%><br>
-<c:choose><c:when test="${error == 1}"><%=bundle.getString("tooManyBorrowed")%></c:when>
-    <c:when test="${error == 2}"><%=bundle.getString("overdueBorrowed")%></c:when>
-    <c:otherwise><%=bundle.getString("unknownReason")%></c:otherwise>
+    <%=bundle.getString("orderForbidden")%><br>
+    <c:choose><c:when test="${error == 1}"><%=bundle.getString("tooManyBorrowed")%>
+    </c:when>
+        <c:when test="${error == 2}"><%=bundle.getString("overdueBorrowed")%>
+        </c:when>
+        <c:otherwise><%=bundle.getString("unknownReason")%>
+        </c:otherwise>
 </c:choose></div>
 </body>
 </html>

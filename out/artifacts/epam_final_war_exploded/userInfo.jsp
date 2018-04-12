@@ -27,40 +27,63 @@
 %>
 <html>
 <head>
-    <title><%=bundle.getString("userInfo")%></title>
+    <title><%=bundle.getString("userInfo")%>
+    </title>
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
 <c:choose><c:when test="${user == null}">
-    <div class="error-message"><%=bundle.getString("userNotFound")%></div>
+    <div class="error-message"><%=bundle.getString("userNotFound")%>
+    </div>
 </c:when>
     <c:otherwise>
-        <h2><%=bundle.getString("userInfo")%></h2>
+        <h2><%=bundle.getString("userInfo")%>
+        </h2>
         <table class="restable"><tr>
-        <td><%=bundle.getString("username")%></td><td>${user.getUsername()}</td>
-    </tr> <tr>
-        <td><%=bundle.getString("role")%></td><td>
-        <c:choose><c:when test="${user.getRole() == 'reader'}"><%=bundle.getString("role.reader")%></c:when>
-            <c:when test="${user.getRole() == 'librarian'}"><%=bundle.getString("role.librarian")%></c:when>
-            <c:when test="${user.getRole() == 'admin'}"><%=bundle.getString("role.admin")%></c:when>
-        </c:choose>
-    </td></tr>
-        <c:if test="${user.getRole() == 'reader'}"><tr>
-        <td><%=bundle.getString("user.firstName")%></td><td>${user.getFirstname()}</td>
-    </tr><tr>
-        <td><%=bundle.getString("user.lastName")%></td><td>${user.getLastname()}</td>
-    </tr><tr>
-        <td><%=bundle.getString("user.birthDate")%></td><td>${user.getDate()}</td>
-    </tr><tr>
-        <td><%=bundle.getString("user.address")%></td><td>${user.getAddress()}</td>
-    </tr><tr>
-        <td><%=bundle.getString("user.phone")%></td><td>${user.getPhone()}</td>
-        </tr></c:if>
+            <td><%=bundle.getString("username")%>
+            </td>
+            <td>${user.getUsername()}</td>
+        </tr> <tr>
+            <td><%=bundle.getString("role")%>
+            </td>
+            <td>
+                <c:choose><c:when test="${user.getRole() == 'reader'}"><%=bundle.getString("role.reader")%>
+                </c:when>
+                    <c:when test="${user.getRole() == 'librarian'}"><%=bundle.getString("role.librarian")%>
+                    </c:when>
+                    <c:when test="${user.getRole() == 'admin'}"><%=bundle.getString("role.admin")%>
+                    </c:when>
+                </c:choose>
+            </td></tr>
+            <c:if test="${user.getRole() == 'reader'}"><tr>
+                <td><%=bundle.getString("user.firstName")%>
+                </td>
+                <td>${user.getFirstname()}</td>
+            </tr><tr>
+                <td><%=bundle.getString("user.lastName")%>
+                </td>
+                <td>${user.getLastname()}</td>
+            </tr><tr>
+                <td><%=bundle.getString("user.birthDate")%>
+                </td>
+                <td>${user.getDate()}</td>
+            </tr><tr>
+                <td><%=bundle.getString("user.address")%>
+                </td>
+                <td>${user.getAddress()}</td>
+            </tr><tr>
+                <td><%=bundle.getString("user.phone")%>
+                </td>
+                <td>${user.getPhone()}</td>
+            </tr></c:if>
         </table>
         <c:if test="${pageContext.request.isUserInRole('admin') || pageContext.request.remoteUser == user.getUsername}">
-        <a class="button" href="changePassword.jsp?id=${user.getUsername()}"><%=bundle.getString("changePassword")%></a>
+            <a class="button" href="changePassword.jsp?id=${user.getUsername()}"><%=bundle.getString("changePassword")%>
+            </a>
         </c:if>
-        <c:if test="${pageContext.request.isUserInRole('admin')}"><a class="button" href="admin/deleteUser.jsp?id=${user.getUsername()}"><%=bundle.getString("delete")%></a> </c:if>
+        <c:if test="${pageContext.request.isUserInRole('admin')}"><a class="button"
+                                                                     href="admin/deleteUser.jsp?id=${user.getUsername()}"><%=bundle.getString("delete")%>
+        </a> </c:if>
 
     </c:otherwise></c:choose>
 

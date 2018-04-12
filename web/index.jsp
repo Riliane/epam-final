@@ -57,7 +57,7 @@
     </form>
 </div>
 <div class="form-container">
-    <form action="search" method="get">
+    <form action="documentsearch" method="get">
         <div class="form-element"><%=bundle.getString("document.title")%> <input type="text" name="name"></div>
         <div class="form-element"><%=bundle.getString("document.author")%> <input type="text" name="author"></div>
         <div class="form-element"><%=bundle.getString("document.publisher")%> <input type="text" name="publisher"></div>

@@ -16,32 +16,34 @@ public class DAOImpl {
     public static DAOImpl getInstance(){
         return instance;
     }
-    private DAOImpl(){}
+
+    private DAOImpl() {
+        columnMap.put("documents", "document_id, name, author, year_of_publishing");
+        columnMap.put("readers", "reader_id, first_name, last_name, date_of_birth");
+        creatorMap.put("documents", new DocumentListCreator());
+        creatorMap.put("readers", new ReaderListCreator());
+    }
 
     static final Logger logger = Logger.getLogger(DAOImpl.class);
 
     final String DB_URL = "jdbc:mysql://127.0.0.1:3306/library_db?useUnicode=true&characterEncoding=UTF-8";
     Connection con = null;
-    public List<Document> bookSearch(String criteria) throws SQLException, ClassNotFoundException {
-        List<Document> list = new ArrayList<>();
+    Map<String, String> columnMap = new HashMap<>();
+    Map<String, ResultListCreator> creatorMap = new HashMap<>();
+
+    public List search(String criteria, String table) throws SQLException, ClassNotFoundException {
         Statement st = null;
         ResultSet rs = null;
         Class.forName("org.gjt.mm.mysql.Driver");
         if (con == null) {con = DriverManager.getConnection(DB_URL, "root", PASSWORD);}
         st = con.createStatement();
-        String query = "SELECT document_id, name, author, year_of_publishing FROM documents";
+        String query = "SELECT " + columnMap.get(table) + " FROM " + table;
         if (!criteria.equals("")) {
             query = query.concat(" WHERE " + criteria);
         }
         rs = st.executeQuery(query);
-        while (rs.next()) {
-            Document document = new Document();
-            document.setId(rs.getInt(1));
-            document.setName(rs.getString(2));
-            document.setAuthor(rs.getString(3));
-            document.setYear(rs.getInt(4));
-            list.add(document);
-        }
+        ResultListCreator creator = creatorMap.get(table);
+        List list = creator.createResultList(rs);
         st.close();
         rs.close();
         return list;

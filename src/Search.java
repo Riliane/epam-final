@@ -11,8 +11,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public class Search extends HttpServlet {
-    String[] parameters = {"name", "author", "publisher", "year_of_publishing", "series", "periodic_number", "topic", "ISBN"};
+public abstract class Search extends HttpServlet {
+    String[] parameters;
+    String page;
+    String table;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String criteria = "";
@@ -24,9 +26,9 @@ public class Search extends HttpServlet {
         }
         DAOImpl dao = DAOImpl.getInstance();
         try{
-            List<Document> list = dao.bookSearch(criteria);
+            List list = dao.search(criteria, table);
             request.setAttribute("list", list);
-            RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher view = request.getRequestDispatcher(page);
             view.forward(request, response);
 
         } catch (ClassNotFoundException e) {

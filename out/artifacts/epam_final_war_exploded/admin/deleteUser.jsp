@@ -19,10 +19,12 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <title><%=bundle.getString("deleteUser")%></title>
+    <title><%=bundle.getString("deleteUser")%>
+    </title>
 </head>
 <body>
-<div class="message"> <%=bundle.getString("deleteUserConfirm1")%> ${param.id}<%=bundle.getString("deleteUserConfirm2")%><br>
-<a href="deleteUser?id=${param.id}" class="button"><%=bundle.getString("confirm")%></a></div>
+<div class="message"><%=bundle.getString("deleteUserConfirm1")%> ${param.id}<%=bundle.getString("deleteUserConfirm2")%><br>
+    <a href="deleteUser?id=${param.id}" class="button"><%=bundle.getString("confirm")%>
+    </a></div>
 </body>
 </html>

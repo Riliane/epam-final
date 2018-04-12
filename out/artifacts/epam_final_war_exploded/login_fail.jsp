@@ -26,9 +26,11 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <title><%=bundle.getString("error")%></title>
+    <title><%=bundle.getString("error")%>
+    </title>
 </head>
 <body>
-<div class="error-message"><%=bundle.getString("incorrectLogin")%></div>
+<div class="error-message"><%=bundle.getString("incorrectLogin")%>
+</div>
 </body>
 </html>
