@@ -33,7 +33,7 @@ public class Order extends HttpServlet {
                         view.forward(request, response);
                     } else {
                         dao.borrow(id, Integer.parseInt(request.getParameter("id")));
-                        ShortMsgDisplayer.getInstance().displayMessage("Документ успешно заказан", response);
+                        ShortMsgDisplayer.getInstance().displayMessage("documentOrdered", request, response);
                     }
                 } catch (ClassNotFoundException e) {
                     response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading SQL connection driver");

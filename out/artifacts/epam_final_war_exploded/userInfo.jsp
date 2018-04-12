@@ -1,3 +1,5 @@
+<%@ page import="java.util.ResourceBundle" %>
+<%@ page import="java.util.Locale" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -7,42 +9,58 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% Locale locale = (Locale) session.getAttribute("locale");
+    String lang = request.getParameter("lang");
+    if (lang != null) {
+        if (lang.equals("en")) {
+            locale = Locale.ENGLISH;
+        } else {
+            locale = new Locale("ru", "RU");
+        }
+        session.setAttribute("locale", locale);
+    }
+    if (locale == null) {
+        locale = new Locale("ru", "RU");
+        session.setAttribute("locale", locale);
+    }
+    ResourceBundle bundle = ResourceBundle.getBundle("text", locale);
+%>
 <html>
 <head>
-    <title>Title</title>
+    <title><%=bundle.getString("userInfo")%></title>
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
 <c:choose><c:when test="${user == null}">
-    <div class="error-message">Пользователь не найден</div>
+    <div class="error-message"><%=bundle.getString("userNotFound")%></div>
 </c:when>
     <c:otherwise>
-        <h2>Информация о пользователе</h2>
+        <h2><%=bundle.getString("userInfo")%></h2>
         <table class="restable"><tr>
-        <td>Имя пользователя</td><td>${user.getUsername()}</td>
+        <td><%=bundle.getString("username")%></td><td>${user.getUsername()}</td>
     </tr> <tr>
-        <td>Роль</td><td>
-        <c:choose><c:when test="${user.getRole() == 'reader'}">Читатель</c:when>
-            <c:when test="${user.getRole() == 'librarian'}">Библиотекарь</c:when>
-            <c:when test="${user.getRole() == 'admin'}">Администратор</c:when>
+        <td><%=bundle.getString("role")%></td><td>
+        <c:choose><c:when test="${user.getRole() == 'reader'}"><%=bundle.getString("role.reader")%></c:when>
+            <c:when test="${user.getRole() == 'librarian'}"><%=bundle.getString("role.librarian")%></c:when>
+            <c:when test="${user.getRole() == 'admin'}"><%=bundle.getString("role.admin")%></c:when>
         </c:choose>
     </td></tr>
         <c:if test="${user.getRole() == 'reader'}"><tr>
-        <td>Имя</td><td>${user.getFirstname()}</td>
+        <td><%=bundle.getString("user.firstName")%></td><td>${user.getFirstname()}</td>
     </tr><tr>
-        <td>Фамилия</td><td>${user.getLastname()}</td>
+        <td><%=bundle.getString("user.lastName")%></td><td>${user.getLastname()}</td>
     </tr><tr>
-        <td>Дата рождения</td><td>${user.getDate()}</td>
+        <td><%=bundle.getString("user.birthDate")%></td><td>${user.getDate()}</td>
     </tr><tr>
-        <td>Адрес</td><td>${user.getAddress()}</td>
+        <td><%=bundle.getString("user.address")%></td><td>${user.getAddress()}</td>
     </tr><tr>
-        <td>Контактный телефон</td><td>${user.getPhone()}</td>
+        <td><%=bundle.getString("user.phone")%></td><td>${user.getPhone()}</td>
         </tr></c:if>
         </table>
         <c:if test="${pageContext.request.isUserInRole('admin') || pageContext.request.remoteUser == user.getUsername}">
-        <a class="button" href="changePassword.jsp?id=${user.getUsername()}">Сменить пароль</a>
+        <a class="button" href="changePassword.jsp?id=${user.getUsername()}"><%=bundle.getString("changePassword")%></a>
         </c:if>
-        <c:if test="${pageContext.request.isUserInRole('admin')}"><a class="button" href="admin/deleteUser.jsp?id=${user.getUsername()}">Удалить</a> </c:if>
+        <c:if test="${pageContext.request.isUserInRole('admin')}"><a class="button" href="admin/deleteUser.jsp?id=${user.getUsername()}"><%=bundle.getString("delete")%></a> </c:if>
 
     </c:otherwise></c:choose>
 

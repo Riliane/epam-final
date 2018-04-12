@@ -18,7 +18,7 @@ public class Return extends HttpServlet {
             try {
                 DAOImpl dao = DAOImpl.getInstance();
                 dao.returnDocument(Integer.parseInt(request.getParameter("id")));
-                ShortMsgDisplayer.getInstance().displayMessage("Документ успешно возвращен", response);
+                ShortMsgDisplayer.getInstance().displayMessage("documentReturned", request, response);
             } catch (ClassNotFoundException e) {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading SQL connection driver");
             } catch (SQLException e) {

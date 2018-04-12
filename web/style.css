@@ -38,14 +38,25 @@ h1{
 a.topbar-section:link, a.topbar-section:visited{
     padding: 15px 20px;
     text-align: center;
-    width: 150px;
     display: inline-block;
     color: white;
     float: right;
     text-decoration: none;
 }
+
+a.topbar-link {
+    width: 150px;
+}
 a.topbar-section:hover{
     background-color: slateblue;
+}
+
+a.topbar-language {
+    width: 50px;
+}
+
+a.active {
+    background-color: powderblue;
 }
 /*.topbar-section a{
     background-color: #f44336;

@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -18,7 +19,7 @@ public class DeleteDocument extends HttpServlet {
             try {
                 DAOImpl dao = DAOImpl.getInstance();
                 dao.deleteDocument(Integer.parseInt(request.getParameter("id")));
-                ShortMsgDisplayer.getInstance().displayMessage("Документ удален", response);
+                ShortMsgDisplayer.getInstance().displayMessage("documentDeleted", request, response);
             } catch (ClassNotFoundException e) {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading SQL connection driver");
             } catch (SQLException e) {

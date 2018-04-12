@@ -1,18 +1,28 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Nana
-  Date: 26.01.2018
-  Time: 12:09
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.Locale" %>
+<%@ page import="java.util.ResourceBundle" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% Locale locale = (Locale) session.getAttribute("locale");
+    String lang = request.getParameter("lang");
+    if (lang != null) {
+        if (lang.equals("en")) {
+            locale = Locale.ENGLISH;
+        } else {
+            locale = new Locale("ru", "RU");
+        }
+        session.setAttribute("locale", locale);
+    }
+    if (locale == null) {
+        locale = new Locale("ru", "RU");
+        session.setAttribute("locale", locale);
+    }
+    ResourceBundle bundle = ResourceBundle.getBundle("text", locale);%>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <title>Удаление пользователя</title>
+    <title><%=bundle.getString("deleteUser")%></title>
 </head>
 <body>
-<div class="message"> Вы уверены, что хотите удалить пользователя ${param.id}?<br>
-<a href="deleteUser?id=${param.id}" class="button">Подтвердить</a></div>
+<div class="message"> <%=bundle.getString("deleteUserConfirm1")%> ${param.id}<%=bundle.getString("deleteUserConfirm2")%><br>
+<a href="deleteUser?id=${param.id}" class="button"><%=bundle.getString("confirm")%></a></div>
 </body>
 </html>
