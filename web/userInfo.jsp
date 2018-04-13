@@ -77,7 +77,55 @@
                 <td>${user.getPhone()}</td>
             </tr></c:if>
         </table>
-        <c:if test="${pageContext.request.isUserInRole('admin') || pageContext.request.remoteUser == user.getUsername}">
+        <c:if test="${currentList != null && !currentList.isEmpty()}">
+            <h2><%=bundle.getString("borrowedDocuments")%>
+            </h2><br>
+            <table class="restable">
+                <tr>
+                    <th><%=bundle.getString("document.title")%>
+                    </th>
+                    <th><%=bundle.getString("document.author")%>
+                    </th>
+                    <th><%=bundle.getString("dateOfBorrow")%>
+                    </th>
+                    <th><%=bundle.getString("dateOfReturn")%>
+                    </th>
+                </tr>
+                <c:forEach items="${currentList}" var="item">
+                    <tr>
+                        <td><a href="document?id=${item.getDocument().getId()}">${item.getDocument().getName()}</a></td>
+                        <td>${item.getDocument().getAuthor()}</td>
+                        <td>${item.getDateOfBorrow()}</td>
+                        <td>${item.getDateOfReturn()}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:if>
+        <c:if test="${archiveList != null && !archiveList.isEmpty()}">
+            <h2><%=bundle.getString("borrowHistory")%>
+            </h2><br>
+            <table class="restable">
+                <tr>
+                    <th><%=bundle.getString("document.title")%>
+                    </th>
+                    <th><%=bundle.getString("document.author")%>
+                    </th>
+                    <th><%=bundle.getString("dateOfBorrow")%>
+                    </th>
+                    <th><%=bundle.getString("dateOfReturn")%>
+                    </th>
+                </tr>
+                <c:forEach items="${archiveList}" var="item">
+                    <tr>
+                        <td><a href="document?id=${item.getDocument().getId()}">${item.getDocument().getName()}</a></td>
+                        <td>${item.getDocument().getAuthor()}</td>
+                        <td>${item.getDateOfBorrow()}</td>
+                        <td>${item.getDateOfReturn()}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:if>
+        <c:if test="${pageContext.request.isUserInRole('admin') || pageContext.request.remoteUser == user.getUsername()}">
             <a class="button" href="changePassword.jsp?id=${user.getUsername()}"><%=bundle.getString("changePassword")%>
             </a>
         </c:if>

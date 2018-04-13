@@ -44,7 +44,7 @@
     </form>
 </div>
 <br><c:if test="${list != null}"><c:choose><c:when test="${list.isEmpty()}">
-    <%=bundle.getString("noDocumentsFound")%>
+    <%=bundle.getString("noReadersFound")%>
 </c:when>
     <c:otherwise>
         <%=bundle.getString("searchResults")%>

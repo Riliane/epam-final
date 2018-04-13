@@ -1,4 +1,5 @@
 import dao.DAOImpl;
+import entity.BorrowRecord;
 import entity.Document;
 import view.ShortMsgDisplayer;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class DocumentInfo extends HttpServlet {
     @Override
@@ -20,8 +22,11 @@ public class DocumentInfo extends HttpServlet {
             }
             else{
                 Document doc = dao.getDocument(Integer.parseInt(request.getParameter("id")));
+                List<BorrowRecord> currentList = dao.getBorrows(Integer.toString(doc.getId()), "current_borrows", "readers");
+                List<BorrowRecord> archiveList = dao.getBorrows(Integer.toString(doc.getId()), "archive", "readers");
                 request.setAttribute("doc", doc);
-                request.setAttribute("isBorrowed", dao.isBorrowed(Integer.parseInt(request.getParameter("id"))));
+                request.setAttribute("currentList", currentList);
+                request.setAttribute("archiveList", archiveList);
                 RequestDispatcher view = request.getRequestDispatcher("documentInfo.jsp");
                 view.forward(request, response);
             }

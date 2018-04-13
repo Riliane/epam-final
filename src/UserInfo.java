@@ -1,4 +1,5 @@
 import dao.DAOImpl;
+import entity.BorrowRecord;
 import entity.User;
 import view.ShortMsgDisplayer;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserInfo extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,6 +22,13 @@ public class UserInfo extends HttpServlet{
         else{
             User user = dao.getUser(request.getParameter("id"));
             request.setAttribute("user", user);
+            if (user.getRole().equals("reader")) {
+                List<BorrowRecord> currentList = dao.getBorrows(user.getUsername(), "current_borrows", "documents");
+                request.setAttribute("currentList", currentList);
+                List<BorrowRecord> archiveList = dao.getBorrows(user.getUsername(), "archive", "documents");
+                request.setAttribute("archiveList", archiveList);
+            }
+
             RequestDispatcher view = request.getRequestDispatcher("userInfo.jsp");
             view.forward(request, response);
         }

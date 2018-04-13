@@ -66,11 +66,11 @@
     </tr></c:if>
     </table>
 
-    <c:if test="${!doc.isRepaired() && !isBorrowed && (pageContext.request.remoteUser == null || pageContext.request.isUserInRole('reader'))}">
+    <c:if test="${!doc.isRepaired() && (currentList == null || currentList.isEmpty()) && (pageContext.request.remoteUser == null || pageContext.request.isUserInRole('reader'))}">
         <a href="order?id=${doc.getId()}" class="button"><%=bundle.getString("order")%>
         </a> </c:if>
     <c:if test="${pageContext.request.isUserInRole('librarian')}">
-        <c:if test="${isBorrowed}"><a href="manage/return?id=${doc.getId()}"
+        <c:if test="${currentList != null && !currentList.isEmpty()}"><a href="manage/return?id=${doc.getId()}"
                                       class="button"><%=bundle.getString("return")%>
         </a><br>
         <c:choose><c:when test="${!doc.isRepaired()}">
@@ -81,6 +81,40 @@
         </a><br></c:otherwise></c:choose></c:if>
         <a href="manage/delete?id=${doc.getId()}" class="button"><%=bundle.getString("delete")%>
         </a><br>
+    </c:if>
+    <c:if test="${pageContext.request.isUserInRole('librarian') || pageContext.request.isUserInRole('admin')}">
+        <c:if test="${currentList != null && !currentList.isEmpty()}">
+            <h2><%=bundle.getString("borrowedBy")%></h2><br>
+            <table class="restable"><tr>
+                <th><%=bundle.getString("user.firstName")%></th>
+                <th><%=bundle.getString("user.lastName")%></th>
+                <th><%=bundle.getString("dateOfBorrow")%></th>
+                <th><%=bundle.getString("dateOfReturn")%></th>
+            </tr>
+                <c:forEach items="${currentList}" var="item"><tr>
+                    <td><a href="userinfo?id=${item.getReader().getUsername()}">${item.getReader().getFirstname()}</a></td>
+                    <td><a href="userinfo?id=${item.getReader().getUsername()}">${item.getReader().getLastname()}</a></td>
+                    <td>${item.getDateOfBorrow()}</td>
+                    <td>${item.getDateOfReturn()}</td>
+                </tr></c:forEach>
+            </table>
+        </c:if>
+        <c:if test="${archiveList != null && !archiveList.isEmpty()}">
+            <h2><%=bundle.getString("borrowHistory")%></h2><br>
+            <table class="restable"><tr>
+                <th><%=bundle.getString("user.firstName")%></th>
+                <th><%=bundle.getString("user.lastName")%></th>
+                <th><%=bundle.getString("dateOfBorrow")%></th>
+                <th><%=bundle.getString("dateOfReturn")%></th>
+            </tr>
+                <c:forEach items="${archiveList}" var="item"><tr>
+                    <td><a href="userinfo?id=${item.getReader().getUsername()}">${item.getReader().getFirstname()}</a></td>
+                    <td><a href="userinfo?id=${item.getReader().getUsername()}">${item.getReader().getLastname()}</a></td>
+                    <td>${item.getDateOfBorrow()}</td>
+                    <td>${item.getDateOfReturn()}</td>
+                </tr></c:forEach>
+            </table>
+        </c:if>
     </c:if>
 </c:otherwise>
 </c:choose>
